@@ -84,7 +84,7 @@ ${formData.message}
                     </div>
                     <div>
                       <h4 className="font-bold text-amber-900">Location</h4>
-                      <p className="text-amber-800">E Big Bear Blvd, Big Bear City, CA 92314 (Exact address will be provided after booking)</p>
+                      <p className="text-amber-800">E Big Bear Blvd, Big Bear City, CA 92314 (exact address will be provided after booking)</p>
                     </div>
                   </div>
 
