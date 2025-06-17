@@ -29,31 +29,13 @@ const BookingCalendar: React.FC = () => {
 
   const fetchBookedDates = async () => {
     try {
-      // Your Google Calendar ID
-      const calendarId = '14b0fe5119b754262ec0607e71ecc0d9f3e5d489a89063a07ff07bc917893f22@group.calendar.google.com';
+      // Use our Vercel serverless function to fetch calendar data
+      const response = await fetch('/api/calendar');
       
-      // Calculate date range for the next year
-      const now = new Date();
-      const oneYearFromNow = new Date();
-      oneYearFromNow.setFullYear(now.getFullYear() + 1);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       
-      const timeMin = now.toISOString();
-      const timeMax = oneYearFromNow.toISOString();
-      
-      // Google Calendar public API endpoint
-      const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?` +
-        `timeMin=${encodeURIComponent(timeMin)}&` +
-        `timeMax=${encodeURIComponent(timeMax)}&` +
-        `singleEvents=true&` +
-        `orderBy=startTime&` +
-        `key=YOUR_API_KEY`; // You'll need to replace this with your API key
-      
-      // For now, let's use a CORS proxy to access the calendar
-      // In production, you should set up proper CORS or use your own backend
-      const corsProxy = 'https://api.allorigins.win/raw?url=';
-      const publicUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`;
-      
-      const response = await fetch(corsProxy + encodeURIComponent(publicUrl));
       const icsData = await response.text();
       
       // Parse ICS data to extract booked dates
@@ -248,7 +230,15 @@ ${guestPhone}
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Date Range Picker */}
-            <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 relative">
+              {isLoading && (
+                <div className="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center rounded-2xl z-10">
+                  <div className="text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600 mx-auto mb-2"></div>
+                    <p className="text-amber-800">Loading calendar availability...</p>
+                  </div>
+                </div>
+              )}
               <div className="aspect-[4/3] w-full">
                 <DateRange
                   ranges={[dateRange]}
