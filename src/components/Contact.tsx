@@ -27,7 +27,7 @@ Message:
 ${formData.message}
     `.trim();
 
-    const mailtoLink = `mailto:hello@buzzyscabin.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:gazoo1@cox.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
 
@@ -74,7 +74,7 @@ ${formData.message}
                     </div>
                     <div>
                       <h4 className="font-bold text-amber-900">Email</h4>
-                      <p className="text-amber-800">hello@buzzyscabin.com</p>
+                      <p className="text-amber-800">gazoo1@cox.net</p>
                     </div>
                   </div>
 
