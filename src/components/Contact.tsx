@@ -116,8 +116,8 @@ ${formData.message}
                   <div className="flex items-center space-x-3">
                     <Clock className="h-6 w-6 text-amber-700" />
                     <div>
-                      <p className="font-bold text-amber-900">Min Stay</p>
-                      <p className="text-sm text-amber-600">2 nights </p>
+                      <p className="font-bold text-amber-900">Nightly Rate</p>
+                      <p className="text-sm text-amber-600">$350/night</p>
                     </div>
                   </div>
                 </div>

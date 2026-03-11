@@ -1,11 +1,10 @@
 import React from 'react';
-import { 
-  Wifi, 
-  Car, 
-  Tv, 
-  Coffee, 
-  Flame, 
-  Waves,
+import {
+  Wifi,
+  Car,
+  Tv,
+  Coffee,
+  Flame,
   TreePine,
   UtensilsCrossed,
   Bath,
@@ -13,16 +12,20 @@ import {
   Wind,
   Mountain,
   Thermometer,
-  Sprout
+  Sprout,
+  WashingMachine,
+  Baby
 } from 'lucide-react';
 
 const Amenities: React.FC = () => {
   const amenities = [
-    { icon: Bed, title: "3 Bedrooms", description: "1 King, 1 Full, 2 Twins, and 1 pull-out couch" },
+    { icon: Bed, title: "3 Bedrooms", description: "1 King, 1 Full, and 2 Twins" },
     { icon: Bath, title: "1.5 Bathrooms", description: "Modern bathrooms with all essentials" },
     { icon: UtensilsCrossed, title: "Full Kitchen", description: "Complete with all appliances & cookware" },
     { icon: Thermometer, title: "Heater", description: "Wall mounted heating system" },
     { icon: Flame, title: " One Button Fireplace", description: "Cozy stone fireplace for perfect evenings" },
+    { icon: WashingMachine, title: "Washer & Dryer", description: "In home washer and dryer" },
+    { icon: Baby, title: "Pack and Play", description: "Available for little ones" },
     { icon: Tv, title: "Entertainment", description: "Smart TV with streaming services" },
     { icon: Wifi, title: "Free WiFi", description: "High-speed internet throughout" },
     { icon: Car, title: "Parking", description: "Free parking for multiple vehicles" },

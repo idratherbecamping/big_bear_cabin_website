@@ -7,6 +7,30 @@ const Gallery: React.FC = () => {
 
   const images = [
     {
+      src: "/living-room.jpg",
+      alt: "Living room with fireplace"
+    },
+    {
+      src: "/king-bedroom.jpg",
+      alt: "King bedroom"
+    },
+    {
+      src: "/full-bedroom.jpg",
+      alt: "Full bedroom"
+    },
+    {
+      src: "/twin-bedroom.jpg",
+      alt: "Twin bedroom"
+    },
+    {
+      src: "/dining-table.jpg",
+      alt: "Dining table"
+    },
+    {
+      src: "/outdoor-deck.jpg",
+      alt: "Outdoor deck"
+    },
+    {
       src: "/IMG_4547.JPG",
       alt: "Cabin view"
     },

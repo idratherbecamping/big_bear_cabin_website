@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
 import { DateRange, Range } from 'react-date-range';
-import { addDays, isWithinInterval } from 'date-fns';
+import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
@@ -21,7 +21,7 @@ const BookingCalendar: React.FC = () => {
   const [guestName, setGuestName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
   const [additionalNotes, setAdditionalNotes] = useState('');
-  const [showMinStayAlert, setShowMinStayAlert] = useState(false);
+  const NIGHTLY_RATE = 350;
 
   useEffect(() => {
     fetchBookedDates();
@@ -100,24 +100,9 @@ const BookingCalendar: React.FC = () => {
     return new Date().toISOString().split('T')[0];
   };
 
-  // Determine if dates are in winter season (November through February)
-  const isWinterSeason = (date: Date) => {
-    const month = date.getMonth();
-    return month === 10 || month === 11 || month === 0 || month === 1; // November, December, January, February
-  };
-
   // Calculate total price
   const calculateTotalPrice = () => {
-    if (!dateRange.startDate || !dateRange.endDate) return 0;
-    let total = 0;
-    const currentDate = new Date(dateRange.startDate);
-    
-    while (currentDate < dateRange.endDate) {
-      total += isWinterSeason(currentDate) ? 325 : 275;
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-    
-    return total + 175; // Add cleaning fee
+    return calculateNights() * NIGHTLY_RATE;
   };
 
   const calculateNights = (range: Range = dateRange) => {
@@ -157,11 +142,11 @@ BOOKING DETAILS:
 Check-in: ${formatDate(dateRange.startDate)}
 Check-out: ${formatDate(dateRange.endDate)}
 Number of Nights: ${calculateNights()}
-Season: ${dateRange.startDate && isWinterSeason(dateRange.startDate) ? 'Winter (Nov-Feb)' : 'Standard (Mar-Oct)'}
-
 PRICING BREAKDOWN:
-Nightly Rate: $${dateRange.startDate && isWinterSeason(dateRange.startDate) ? '325' : '275'} × ${calculateNights()} nights = $${calculateTotalPrice() - 175}
-Cleaning Fee: $175
+Nightly Rate: $${NIGHTLY_RATE} x ${calculateNights()} nights = $${calculateTotalPrice()}
+(Cleaning included)
+Pet Deposit: $75 (if applicable, refunded within 7 days)
+Damage Deposit: $100 (refunded within 7 days)
 Total Cost: $${calculateTotalPrice()}
 
 ADDITIONAL NOTES:
@@ -194,8 +179,6 @@ ${guestPhone}
   });
 
   const handleDateChange = (item: any) => {
-    const nights = calculateNights(item.selection);
-    setShowMinStayAlert(nights === 1);
     setDateRange(item.selection);
   };
 
@@ -256,14 +239,6 @@ ${guestPhone}
                 />
               </div>
 
-              {showMinStayAlert && (
-                <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-700 text-sm">
-                    ⚠️ Minimum stay is 2 nights. Please select additional nights for your stay.
-                  </p>
-                </div>
-              )}
-
               <div className="mt-6 flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 bg-amber-600 rounded"></div>
@@ -298,9 +273,7 @@ ${guestPhone}
                     <p><strong>Nights:</strong> {calculateNights()}</p>
                     <div className="mt-2 pt-2 border-t border-amber-200">
                       <p className="font-medium text-amber-900">
-                        {dateRange.startDate && isWinterSeason(dateRange.startDate) ? 
-                          "Winter Rate: $325/night (Nov-Feb)" : 
-                          "Standard Rate: $275/night (Mar-Oct)"}
+                        ${NIGHTLY_RATE}/night (cleaning included)
                       </p>
                     </div>
                   </div>
@@ -309,12 +282,19 @@ ${guestPhone}
                 <div className="border-t pt-6">
                   <div className="space-y-3 text-amber-800">
                     <div className="flex justify-between">
-                      <span>Nightly rate × {calculateNights()} nights</span>
-                      <span>${calculateTotalPrice() - 175}</span>
+                      <span>${NIGHTLY_RATE}/night x {calculateNights()} nights</span>
+                      <span>${calculateTotalPrice()}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Cleaning fee</span>
-                      <span>$175</span>
+                    <div className="flex justify-between text-sm text-amber-600">
+                      <span>Cleaning included</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Pet deposit (if applicable, refunded within 7 days)</span>
+                      <span>$75</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Damage deposit (refunded within 7 days)</span>
+                      <span>$100</span>
                     </div>
                     <div className="border-t pt-3">
                       <div className="flex justify-between font-bold text-lg text-amber-900">
@@ -386,17 +366,11 @@ ${guestPhone}
                 <div className="bg-blue-50 rounded-lg p-4">
                   <h4 className="font-bold text-blue-900 mb-2">Booking Details</h4>
                   <ul className="text-sm text-blue-800 space-y-1">
-                    <li>• Minimum stay: 2 nights</li>
                     <li>• Check-in: 3:00 PM</li>
                     <li>• Check-out: 11:00 AM</li>
-                    <li className="space-y-2">
-                      <span>• Cancellation Policy:</span>
-                      <ul className="ml-8 space-y-1">
-                        <li>100% refund if canceled at least 14 days before check-in</li>
-                        <li>50% refund if canceled 7–13 days before check-in</li>
-                        <li>No refund if canceled less than 7 days before check-in</li>
-                      </ul>
-                    </li>
+                    <li>• Pet deposit: $75 (refunded within 7 days)</li>
+                    <li>• Damage deposit: $100 (refunded within 7 days)</li>
+                    <li>• No cancellations</li>
                   </ul>
                 </div>
               </div>
