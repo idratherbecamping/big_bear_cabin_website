@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
-          Buzzy's Cabin
+          Buzzy's Family Cabin
         </h1>
         <p className="text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl mx-auto leading-relaxed">
           Your perfect mountain escape awaits. Create unforgettable memories in our cozy family cabin 

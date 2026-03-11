@@ -144,7 +144,7 @@ Check-out: ${formatDate(dateRange.endDate)}
 Number of Nights: ${calculateNights()}
 PRICING BREAKDOWN:
 Nightly Rate: $${NIGHTLY_RATE} x ${calculateNights()} nights = $${calculateTotalPrice()}
-(Cleaning included)
+(Cleaning, resort and bed tax included)
 Pet Deposit: $75 (if applicable, refunded within 7 days)
 Damage Deposit: $100 (refunded within 7 days)
 Total Cost: $${calculateTotalPrice()}
@@ -273,7 +273,7 @@ ${guestPhone}
                     <p><strong>Nights:</strong> {calculateNights()}</p>
                     <div className="mt-2 pt-2 border-t border-amber-200">
                       <p className="font-medium text-amber-900">
-                        ${NIGHTLY_RATE}/night (cleaning included)
+                        ${NIGHTLY_RATE}/night (cleaning, resort and bed tax included)
                       </p>
                     </div>
                   </div>
@@ -286,7 +286,7 @@ ${guestPhone}
                       <span>${calculateTotalPrice()}</span>
                     </div>
                     <div className="flex justify-between text-sm text-amber-600">
-                      <span>Cleaning included</span>
+                      <span>Cleaning, resort and bed tax included</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span>Pet deposit (if applicable, refunded within 7 days)</span>
@@ -370,7 +370,6 @@ ${guestPhone}
                     <li>• Check-out: 11:00 AM</li>
                     <li>• Pet deposit: $75 (refunded within 7 days)</li>
                     <li>• Damage deposit: $100 (refunded within 7 days)</li>
-                    <li>• No cancellations</li>
                   </ul>
                 </div>
               </div>

@@ -18,7 +18,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Home className="h-8 w-8 text-amber-700" />
-            <h1 className="text-2xl font-bold text-amber-900">Buzzy's Cabin</h1>
+            <h1 className="text-2xl font-bold text-amber-900">Buzzy's Family Cabin</h1>
           </div>
           
           {/* Desktop Navigation */}

@@ -8,7 +8,6 @@ import Amenities from './components/Amenities';
 import BookingCalendar from './components/BookingCalendar';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CancellationPolicy from './components/CancellationPolicy';
 
 function Home() {
   return (
@@ -30,7 +29,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cancellation-policy" element={<CancellationPolicy />} />
         </Routes>
         <Footer />
       </div>

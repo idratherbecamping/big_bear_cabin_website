@@ -1,6 +1,5 @@
 import React from 'react';
 import { Home, Mail, Phone, MapPin, Heart } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -18,7 +17,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
               <Home className="h-8 w-8 text-amber-300" />
-              <h3 className="text-2xl font-bold text-white">Buzzy's Cabin</h3>
+              <h3 className="text-2xl font-bold text-white">Buzzy's Family Cabin</h3>
             </div>
             <p className="text-amber-200 mb-6 max-w-md leading-relaxed">
               Your perfect mountain escape awaits. Create unforgettable memories with family 
@@ -97,7 +96,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-amber-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-amber-200 text-sm">
-              © 2025 Buzzy's Cabin. All rights reserved.
+              © 2025 Buzzy's Family Cabin. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-amber-200 hover:text-white transition-colors">
@@ -106,9 +105,6 @@ const Footer: React.FC = () => {
               <a href="#" className="text-amber-200 hover:text-white transition-colors">
                 Terms of Service
               </a>
-              <Link to="/cancellation-policy" className="text-amber-200 hover:text-white transition-colors">
-                Cancellation Policy
-              </Link>
             </div>
           </div>
         </div>

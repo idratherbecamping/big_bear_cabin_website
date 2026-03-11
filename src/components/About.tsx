@@ -8,10 +8,10 @@ const About: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-6">
-              Welcome to Our Mountain Sanctuary
+              Welcome to Buzzy's Family Cabin
             </h2>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed">
-              Nestled in the heart of the mountains, Buzzy's Cabin offers the perfect blend of rustic charm 
+              Nestled in the heart of the mountains, Buzzy's Family Cabin offers the perfect blend of rustic charm 
               and modern comfort for your family getaway.
             </p>
           </div>
@@ -24,7 +24,7 @@ const About: React.FC = () => {
               <p className="text-lg text-amber-700 leading-relaxed">
                 Our beautifully appointed cabin features everything you need for a memorable stay. 
                 From cozy evenings by the fireplace to adventurous days exploring the great outdoors, 
-                Buzzy's Cabin is your gateway to unforgettable experiences.
+                Buzzy's Family Cabin is your gateway to unforgettable experiences.
               </p>
               <p className="text-lg text-amber-700 leading-relaxed">
                 Whether you're seeking a peaceful retreat, a family adventure, or a romantic getaway, 
