@@ -54,7 +54,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="IMG_4456.JPG"
+                  src="/living-room.jpg"
                   alt="Cozy cabin interior"
                   className="w-full h-96 object-cover"
                 />

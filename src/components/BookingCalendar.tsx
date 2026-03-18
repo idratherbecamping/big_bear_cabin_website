@@ -18,9 +18,6 @@ const BookingCalendar: React.FC = () => {
   });
   const [bookedDates, setBookedDates] = useState<BookedDate[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [guestName, setGuestName] = useState('');
-  const [guestPhone, setGuestPhone] = useState('');
-  const [additionalNotes, setAdditionalNotes] = useState('');
   const NIGHTLY_RATE = 350;
 
   useEffect(() => {
@@ -119,47 +116,6 @@ const BookingCalendar: React.FC = () => {
       month: 'long', 
       day: 'numeric' 
     });
-  };
-
-  const handleReservation = () => {
-    if (!guestName.trim() || !guestPhone.trim()) {
-      alert('Please fill in your name and phone number before making a reservation.');
-      return;
-    }
-
-    const subject = `Cabin Reservation Request - ${formatDate(dateRange.startDate)} to ${formatDate(dateRange.endDate)}`;
-    
-    const emailBody = `
-Hello,
-
-I would like to make a reservation for your Big Bear Cabin with the following details:
-
-GUEST INFORMATION:
-Name: ${guestName}
-Phone: ${guestPhone}
-
-BOOKING DETAILS:
-Check-in: ${formatDate(dateRange.startDate)}
-Check-out: ${formatDate(dateRange.endDate)}
-Number of Nights: ${calculateNights()}
-PRICING BREAKDOWN:
-Nightly Rate: $${NIGHTLY_RATE} x ${calculateNights()} nights = $${calculateTotalPrice()}
-(Cleaning, resort and bed tax included)
-Total Cost: $${calculateTotalPrice()}
-
-ADDITIONAL NOTES:
-${additionalNotes || 'None'}
-
-Please confirm availability and let me know the next steps for securing this reservation.
-
-Thank you!
-
-${guestName}
-${guestPhone}
-    `.trim();
-
-    const mailtoLink = `mailto:gazoo1@cox.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
   };
 
   // Convert booked dates to disabled dates array
@@ -293,64 +249,6 @@ ${guestPhone}
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="guestName" className="block text-sm font-medium text-amber-900 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="guestName"
-                        value={guestName}
-                        onChange={(e) => setGuestName(e.target.value)}
-                        className="w-full px-3 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                        placeholder="Enter your full name"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="guestPhone" className="block text-sm font-medium text-amber-900 mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        id="guestPhone"
-                        value={guestPhone}
-                        onChange={(e) => setGuestPhone(e.target.value)}
-                        className="w-full px-3 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                        placeholder="(555) 123-4567"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="additionalNotes" className="block text-sm font-medium text-amber-900 mb-2">
-                      Additional Notes or Requests
-                    </label>
-                    <textarea
-                      id="additionalNotes"
-                      value={additionalNotes}
-                      onChange={(e) => setAdditionalNotes(e.target.value)}
-                      rows={3}
-                      className="w-full px-3 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
-                      placeholder="Any special requests, questions, or additional information..."
-                    />
-                  </div>
-                </div>
-
-                <button 
-                  onClick={handleReservation}
-                  className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-6 rounded-lg transition-colors"
-                >
-                  Request Reservation
-                </button>
-                
-                <div className="mt-4 text-center text-sm text-amber-800">
-                  <p>Your email client will open automatically with a pre-filled message. After submitting your request via email, you'll receive a confirmation email within 1-2 business days with next steps to secure your reservation.</p>
                 </div>
 
                 <div className="bg-blue-50 rounded-lg p-4">

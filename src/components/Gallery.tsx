@@ -7,12 +7,12 @@ const Gallery: React.FC = () => {
 
   const images = [
     {
-      src: "/living-room.jpg",
-      alt: "Living room with fireplace"
+      src: "/IMG_3321.JPG",
+      alt: "Cabin view"
     },
     {
-      src: "/king-bedroom.jpg",
-      alt: "King bedroom"
+      src: "/living-room.jpg",
+      alt: "Living room with fireplace"
     },
     {
       src: "/full-bedroom.jpg",
@@ -23,107 +23,11 @@ const Gallery: React.FC = () => {
       alt: "Twin bedroom"
     },
     {
-      src: "/dining-table.jpg",
-      alt: "Dining table"
-    },
-    {
       src: "/outdoor-deck.jpg",
       alt: "Outdoor deck"
     },
     {
-      src: "/IMG_4547.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6750.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6675.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6672.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6671.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6668 2.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6668.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6664.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6752.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6656_hero.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6655.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6640.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6639.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6630.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6339.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_6333.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4554.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4553.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4548.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4546.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4545.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4540.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4539.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4538.JPG",
+      src: "/IMG_4456_hero.JPG",
       alt: "Cabin view"
     },
     {
@@ -131,27 +35,7 @@ const Gallery: React.FC = () => {
       alt: "Cabin view"
     },
     {
-      src: "/IMG_4495.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4494.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4486.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_4456.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_3672.JPG",
-      alt: "Cabin view"
-    },
-    {
-      src: "/IMG_3321.JPG",
+      src: "/IMG_6668.JPG",
       alt: "Cabin view"
     },
   ];
